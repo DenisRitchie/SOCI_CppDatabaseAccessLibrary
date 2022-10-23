@@ -11,95 +11,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution", "Solution", "{6F
 		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Soci", "Soci", "{179C2BBA-0087-45CA-A5EB-EA34C994C77D}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Include", "Include", "{3F7A1416-80BC-42C4-953A-7CBF19AEE359}"
-	ProjectSection(SolutionItems) = preProject
-		..\Soci\include\soci\backend-loader.h = ..\Soci\include\soci\backend-loader.h
-		..\Soci\include\soci\bind-values.h = ..\Soci\include\soci\bind-values.h
-		..\Soci\include\soci\blob-exchange.h = ..\Soci\include\soci\blob-exchange.h
-		..\Soci\include\soci\blob.h = ..\Soci\include\soci\blob.h
-		..\Soci\include\soci\boost-fusion.h = ..\Soci\include\soci\boost-fusion.h
-		..\Soci\include\soci\boost-gregorian-date.h = ..\Soci\include\soci\boost-gregorian-date.h
-		..\Soci\include\soci\boost-optional.h = ..\Soci\include\soci\boost-optional.h
-		..\Soci\include\soci\boost-tuple.h = ..\Soci\include\soci\boost-tuple.h
-		..\Soci\include\soci\callbacks.h = ..\Soci\include\soci\callbacks.h
-		..\Soci\include\soci\column-info.h = ..\Soci\include\soci\column-info.h
-		..\Soci\include\soci\connection-parameters.h = ..\Soci\include\soci\connection-parameters.h
-		..\Soci\include\soci\connection-pool.h = ..\Soci\include\soci\connection-pool.h
-		..\Soci\include\soci\error.h = ..\Soci\include\soci\error.h
-		..\Soci\include\soci\exchange-traits.h = ..\Soci\include\soci\exchange-traits.h
-		..\Soci\include\soci\into-type.h = ..\Soci\include\soci\into-type.h
-		..\Soci\include\soci\into.h = ..\Soci\include\soci\into.h
-		..\Soci\include\soci\logger.h = ..\Soci\include\soci\logger.h
-		..\Soci\include\soci\noreturn.h = ..\Soci\include\soci\noreturn.h
-		..\Soci\include\soci\once-temp-type.h = ..\Soci\include\soci\once-temp-type.h
-		..\Soci\include\soci\prepare-temp-type.h = ..\Soci\include\soci\prepare-temp-type.h
-		..\Soci\include\soci\procedure.h = ..\Soci\include\soci\procedure.h
-		..\Soci\include\soci\query_transformation.h = ..\Soci\include\soci\query_transformation.h
-		..\Soci\include\soci\ref-counted-prepare-info.h = ..\Soci\include\soci\ref-counted-prepare-info.h
-		..\Soci\include\soci\ref-counted-statement.h = ..\Soci\include\soci\ref-counted-statement.h
-		..\Soci\include\soci\row-exchange.h = ..\Soci\include\soci\row-exchange.h
-		..\Soci\include\soci\row.h = ..\Soci\include\soci\row.h
-		..\Soci\include\soci\rowid-exchange.h = ..\Soci\include\soci\rowid-exchange.h
-		..\Soci\include\soci\rowid.h = ..\Soci\include\soci\rowid.h
-		..\Soci\include\soci\rowset.h = ..\Soci\include\soci\rowset.h
-		..\Soci\include\soci\session.h = ..\Soci\include\soci\session.h
-		..\Soci\include\soci\soci-backend.h = ..\Soci\include\soci\soci-backend.h
-		..\Soci\include\soci\soci-config.h = ..\Soci\include\soci\soci-config.h
-		..\Soci\include\soci\soci-platform.h = ..\Soci\include\soci\soci-platform.h
-		..\Soci\include\soci\soci-simple.h = ..\Soci\include\soci\soci-simple.h
-		..\Soci\include\soci\soci.h = ..\Soci\include\soci\soci.h
-		..\Soci\include\soci\statement.h = ..\Soci\include\soci\statement.h
-		..\Soci\include\soci\transaction.h = ..\Soci\include\soci\transaction.h
-		..\Soci\include\soci\type-conversion-traits.h = ..\Soci\include\soci\type-conversion-traits.h
-		..\Soci\include\soci\type-conversion.h = ..\Soci\include\soci\type-conversion.h
-		..\Soci\include\soci\type-holder.h = ..\Soci\include\soci\type-holder.h
-		..\Soci\include\soci\type-ptr.h = ..\Soci\include\soci\type-ptr.h
-		..\Soci\include\soci\type-wrappers.h = ..\Soci\include\soci\type-wrappers.h
-		..\Soci\include\soci\unsigned-types.h = ..\Soci\include\soci\unsigned-types.h
-		..\Soci\include\soci\use-type.h = ..\Soci\include\soci\use-type.h
-		..\Soci\include\soci\use.h = ..\Soci\include\soci\use.h
-		..\Soci\include\soci\values-exchange.h = ..\Soci\include\soci\values-exchange.h
-		..\Soci\include\soci\values.h = ..\Soci\include\soci\values.h
-		..\Soci\include\soci\version.h = ..\Soci\include\soci\version.h
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bin", "Bin", "{3C7F6D0D-5138-40F6-96E2-09D1D954613A}"
-	ProjectSection(SolutionItems) = preProject
-		..\Soci\bin\soci_core_4_1.dll = ..\Soci\bin\soci_core_4_1.dll
-		..\Soci\bin\soci_empty_4_1.dll = ..\Soci\bin\soci_empty_4_1.dll
-		..\Soci\bin\soci_odbc_4_1.dll = ..\Soci\bin\soci_odbc_4_1.dll
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{A320E6A5-4D9B-4BDE-BF88-2B0111956B04}"
-	ProjectSection(SolutionItems) = preProject
-		..\Soci\lib\libsoci_core_4_1.lib = ..\Soci\lib\libsoci_core_4_1.lib
-		..\Soci\lib\libsoci_empty_4_1.lib = ..\Soci\lib\libsoci_empty_4_1.lib
-		..\Soci\lib\libsoci_odbc_4_1.lib = ..\Soci\lib\libsoci_odbc_4_1.lib
-		..\Soci\lib\soci_core_4_1.lib = ..\Soci\lib\soci_core_4_1.lib
-		..\Soci\lib\soci_empty_4_1.lib = ..\Soci\lib\soci_empty_4_1.lib
-		..\Soci\lib\soci_odbc_4_1.lib = ..\Soci\lib\soci_odbc_4_1.lib
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CMake", "CMake", "{2896BEE1-332C-43B7-BE04-5BC483ABF65E}"
-	ProjectSection(SolutionItems) = preProject
-		..\Soci\lib\cmake\SOCI\SOCIConfig.cmake = ..\Soci\lib\cmake\SOCI\SOCIConfig.cmake
-		..\Soci\lib\cmake\SOCI\SOCIConfigVersion.cmake = ..\Soci\lib\cmake\SOCI\SOCIConfigVersion.cmake
-		..\Soci\lib\cmake\SOCI\SOCITargets-release.cmake = ..\Soci\lib\cmake\SOCI\SOCITargets-release.cmake
-		..\Soci\lib\cmake\SOCI\SOCITargets.cmake = ..\Soci\lib\cmake\SOCI\SOCITargets.cmake
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Odbc", "Odbc", "{36392496-872A-49C2-BA12-114BA3391A7A}"
-	ProjectSection(SolutionItems) = preProject
-		..\Soci\include\soci\odbc\soci-odbc.h = ..\Soci\include\soci\odbc\soci-odbc.h
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Empty", "Empty", "{4C42EF15-03CC-4FBA-9AB6-2F9B5C5F2959}"
-	ProjectSection(SolutionItems) = preProject
-		..\Soci\include\soci\empty\soci-empty.h = ..\Soci\include\soci\empty\soci-empty.h
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -119,15 +30,6 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{179C2BBA-0087-45CA-A5EB-EA34C994C77D} = {6F46D750-C339-4D52-8DF0-E67C0B30F104}
-		{3F7A1416-80BC-42C4-953A-7CBF19AEE359} = {179C2BBA-0087-45CA-A5EB-EA34C994C77D}
-		{3C7F6D0D-5138-40F6-96E2-09D1D954613A} = {179C2BBA-0087-45CA-A5EB-EA34C994C77D}
-		{A320E6A5-4D9B-4BDE-BF88-2B0111956B04} = {179C2BBA-0087-45CA-A5EB-EA34C994C77D}
-		{2896BEE1-332C-43B7-BE04-5BC483ABF65E} = {179C2BBA-0087-45CA-A5EB-EA34C994C77D}
-		{36392496-872A-49C2-BA12-114BA3391A7A} = {3F7A1416-80BC-42C4-953A-7CBF19AEE359}
-		{4C42EF15-03CC-4FBA-9AB6-2F9B5C5F2959} = {3F7A1416-80BC-42C4-953A-7CBF19AEE359}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3EEEE744-6F2F-4374-82E7-A8617E1FC094}

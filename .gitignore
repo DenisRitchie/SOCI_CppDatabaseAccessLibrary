@@ -32,9 +32,12 @@ bld/
 [Ll]ogs/
 
 # SOCI Library
-!**[Ss]oci/[Bb]in/
-!**[Ss]oci/[Ii]nclude/
-!**[Ss]oci/[Ll]ib/
+!**/[Ss]oci/*
+!**/[Ss]oci/debug/bin/
+!**/[Ss]oci/debug/lib/
+!**/[Ss]oci/release/bin/
+!**/[Ss]oci/release/lib/
+!**/[Ss]oci/include/
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/

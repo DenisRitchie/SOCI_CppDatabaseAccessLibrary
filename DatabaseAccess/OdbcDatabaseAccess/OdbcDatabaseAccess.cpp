@@ -1,20 +1,57 @@
-// OdbcDatabaseAccess.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+#include <soci/soci.h>
+#include <soci/connection-parameters.h>
+#include <soci/odbc/soci-odbc.h>
 
 #include <iostream>
+#include <string>
+#include <filesystem>
+#include <fstream>
 
-int main()
+// https://soci.sourceforge.net/doc/master/
+// https://soci.sourceforge.net/doc/master/statements/
+// https://soci.sourceforge.net/doc/master/backends/odbc/
+
+int32_t main()
 {
-    std::cout << "Hello World!\n";
+  try
+  {
+    soci::connection_parameters parameters(soci::odbc, "Driver={ODBC Driver 17 for SQL Server};Server=DESKTOP-KQTC93V;Database=Northwind;Uid=sa;Pwd=SQLServer;Connection Timeout=30;");
+    parameters.set_option(soci::odbc_option_driver_complete, "0" /* SQL_DRIVER_NOPROMPT */);
+    soci::session sql_server(parameters);
+    std::cout << std::boolalpha << "SqlServer.is_connected(): " << sql_server.is_connected() << std::endl;
+
+    soci::rowset<soci::row> reader = (sql_server.prepare <<
+      "SELECT TOP (1000) [CategoryID], [CategoryName], [Description], [Picture] "
+      "FROM [Northwind].[dbo].[Categories]");
+
+    std::filesystem::create_directory("bin");
+
+    for (soci::rowset<soci::row>::const_iterator it = reader.begin(); it != reader.end(); ++it)
+    {
+      auto image = it->get<std::string>(3);
+      
+      std::cout
+        << "CategoryID:   " << it->get<int32_t>(0) << '\n'
+        << "CategoryName: " << it->get<std::string>(1) << '\n'
+        << "Description:  " << it->get<std::string>(2) << '\n'
+        << "ImageSize:    " << image.size() << std::endl;
+
+      std::ofstream file{ "bin/" + std::to_string(it->get<int32_t>(0)) + "_image.jpg"};
+      file.write(image.data(), image.size());
+
+      std::cout << "\n";
+    }
+  }
+  catch (soci::odbc_soci_error const& ex)
+  {
+    std::cerr 
+      << "ODBC Error Code:   " << ex.odbc_error_code() << std::endl
+      << "Native Error Code: " << ex.native_error_code() << std::endl
+      << "SOCI Message:      " << ex.what() << std::endl
+      << "ODBC Message:      " << ex.odbc_error_message() << std::endl;
+  }
+  catch (std::exception const& ex)
+  {
+    std::cerr << "Some other error: " << ex.what() << std::endl;
+  }
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
