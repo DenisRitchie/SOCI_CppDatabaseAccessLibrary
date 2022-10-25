@@ -13,10 +13,49 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Models">
+      <UniqueIdentifier>{a4af6605-7a2a-4470-9412-3f2d516f7e3b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SqlServer">
+      <UniqueIdentifier>{ba89f3fb-33af-4936-845a-a2107944c776}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Models\Sys">
+      <UniqueIdentifier>{87047a1c-7e86-4249-aad2-2ccdf698d9be}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BasicQueryModule.ixx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Categories.ixx">
+      <Filter>Models</Filter>
+    </ClCompile>
+    <ClCompile Include="Models.ixx">
+      <Filter>Models</Filter>
+    </ClCompile>
+    <ClCompile Include="Customers.ixx">
+      <Filter>Models</Filter>
+    </ClCompile>
+    <ClCompile Include="NorthwindContext.ixx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SqlServer.ixx">
+      <Filter>SqlServer</Filter>
+    </ClCompile>
+    <ClCompile Include="OdbcContext.ixx">
+      <Filter>SqlServer</Filter>
+    </ClCompile>
+    <ClCompile Include="StatementIterator.ixx">
+      <Filter>SqlServer</Filter>
+    </ClCompile>
+    <ClCompile Include="SqlDataType.ixx">
+      <Filter>SqlServer</Filter>
+    </ClCompile>
     <ClCompile Include="OdbcDatabaseAccess.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SysTable.ixx">
+      <Filter>Models\Sys</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

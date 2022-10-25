@@ -1,50 +1,62 @@
+#include <iostream>
+#include <iomanip>
+#include <string>
+#include <locale>
+#include <ctime>
+
 #include <soci/soci.h>
-#include <soci/connection-parameters.h>
 #include <soci/odbc/soci-odbc.h>
 
-#include <iostream>
-#include <string>
-#include <filesystem>
-#include <fstream>
+using std::operator""s;
 
 // https://soci.sourceforge.net/doc/master/
 // https://soci.sourceforge.net/doc/master/statements/
 // https://soci.sourceforge.net/doc/master/backends/odbc/
 
+import OdbcDatabaseAccess.Models;
+import OdbcDatabaseAccess.BasicQueryModule;
+import OdbcDatabaseAccess.NorthwindContext;
+
+// #define SqlQuery(...) #__VA_ARGS__
+
 int32_t main()
 {
+  NorthwindContext context;
+
   try
   {
-    soci::connection_parameters parameters(soci::odbc, "Driver={ODBC Driver 17 for SQL Server};Server=DESKTOP-KQTC93V;Database=Northwind;Uid=sa;Pwd=SQLServer;Connection Timeout=30;");
-    parameters.set_option(soci::odbc_option_driver_complete, "0" /* SQL_DRIVER_NOPROMPT */);
-    soci::session sql_server(parameters);
-    std::cout << std::boolalpha << "SqlServer.is_connected(): " << sql_server.is_connected() << std::endl;
-
-    soci::rowset<soci::row> reader = (sql_server.prepare <<
-      "SELECT TOP (1000) [CategoryID], [CategoryName], [Description], [Picture] "
-      "FROM [Northwind].[dbo].[Categories]");
-
-    std::filesystem::create_directory("bin");
-
-    for (soci::rowset<soci::row>::const_iterator it = reader.begin(); it != reader.end(); ++it)
+    for (auto& table_info : context.Database().TableInformation())
     {
-      auto image = it->get<std::string>(3);
-      
-      std::cout
-        << "CategoryID:   " << it->get<int32_t>(0) << '\n'
-        << "CategoryName: " << it->get<std::string>(1) << '\n'
-        << "Description:  " << it->get<std::string>(2) << '\n'
-        << "ImageSize:    " << image.size() << std::endl;
+      std::cout << "Table Name: " << table_info.TableName << std::endl;
 
-      std::ofstream file{ "bin/" + std::to_string(it->get<int32_t>(0)) + "_image.jpg"};
-      file.write(image.data(), image.size());
+      for (auto& column_info : table_info.Columns())
+      {
+        std::cout << "\tType: " << std::to_string(column_info.type) << std::endl;
+      }
 
-      std::cout << "\n";
+      std::cout << "\n\n";
     }
+
+    for (auto& [schema_name, table_name, create_date, modify_date] : context.GetTables())
+    {
+      char create_date_string[26];
+      strftime(create_date_string, sizeof(create_date_string), "%c", &create_date);
+
+      char modify_date_string[26];
+      strftime(modify_date_string, sizeof(modify_date_string), "%c", &modify_date);
+
+      printf_s("[%s].[%s] C: \"%s\", M: \"%s\"\n", schema_name.c_str(), table_name.c_str(),
+        create_date_string, modify_date_string);
+    }
+
+    long long AffectedRows = context.Database().ExecuteSql(R"(
+      INSERT INTO [dbo].[Region] ([RegionId], [RegionDescription])
+      VALUES (:RegionId, :RegionDescription)
+    )", soci::use(5, "RegionId"), soci::use("Region #5"s, "RegionDescription"));
   }
   catch (soci::odbc_soci_error const& ex)
   {
-    std::cerr 
+    std::cerr << "\n\n"
       << "ODBC Error Code:   " << ex.odbc_error_code() << std::endl
       << "Native Error Code: " << ex.native_error_code() << std::endl
       << "SOCI Message:      " << ex.what() << std::endl
@@ -52,6 +64,8 @@ int32_t main()
   }
   catch (std::exception const& ex)
   {
-    std::cerr << "Some other error: " << ex.what() << std::endl;
+    std::cerr << "Error: " << ex.what() << std::endl;
   }
+
+  return EXIT_SUCCESS;
 }

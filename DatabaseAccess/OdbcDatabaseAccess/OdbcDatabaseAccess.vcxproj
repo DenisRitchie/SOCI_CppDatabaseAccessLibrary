@@ -163,7 +163,17 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BasicQueryModule.ixx" />
+    <ClCompile Include="Categories.ixx" />
+    <ClCompile Include="Customers.ixx" />
+    <ClCompile Include="NorthwindContext.ixx" />
+    <ClCompile Include="Models.ixx" />
+    <ClCompile Include="OdbcContext.ixx" />
     <ClCompile Include="OdbcDatabaseAccess.cpp" />
+    <ClCompile Include="SqlDataType.ixx" />
+    <ClCompile Include="SqlServer.ixx" />
+    <ClCompile Include="StatementIterator.ixx" />
+    <ClCompile Include="SysTable.ixx" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
